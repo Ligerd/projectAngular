@@ -12,6 +12,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopStartComponent } from './shop/shop-start/shop-start.component';
 import { ShopService } from './shop/shop.service';
 import { ShopItemDetailComponent } from './shop/shop-item-detail/shop-item-detail.component';
+import { FavoriteItemsComponent } from './favorite-items/favorite-items.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ShopItemDetailComponent } from './shop/shop-item-detail/shop-item-detai
     ShopListComponent,
     ShopItemComponent,
     ShopStartComponent,
-    ShopItemDetailComponent
+    ShopItemDetailComponent,
+    FavoriteItemsComponent
   ],
   imports: [
     BrowserModule,
