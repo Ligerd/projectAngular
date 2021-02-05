@@ -13,6 +13,7 @@ import { ShopStartComponent } from './shop/shop-start/shop-start.component';
 import { ShopService } from './shop/shop.service';
 import { ShopItemDetailComponent } from './shop/shop-item-detail/shop-item-detail.component';
 import { FavoriteItemsComponent } from './favorite-items/favorite-items.component';
+import { FavoriteService } from './favorite-items/favorite.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { FavoriteItemsComponent } from './favorite-items/favorite-items.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ShopService],
+  providers: [ShopService, FavoriteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

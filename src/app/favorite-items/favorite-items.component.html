@@ -1,1 +1,14 @@
-<p>favorite-items works!</p>
+<div class="row">
+    <div class="col-xs-10">
+      <hr>
+      <ul class="list-group">
+        <a
+          class="list-group-item"
+          style="cursor: pointer"
+          *ngFor="let item of favoriteItems"
+        >
+          {{ item.name }} ({{ item.description }})
+        </a>
+      </ul>
+    </div>
+  </div>
