@@ -11,6 +11,7 @@ import { ShopListComponent } from './shop/shop-list/shop-list.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopStartComponent } from './shop/shop-start/shop-start.component';
 import { ShopService } from './shop/shop.service';
+import { ShopItemDetailComponent } from './shop/shop-item-detail/shop-item-detail.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ShopService } from './shop/shop.service';
     ShopComponent,
     ShopListComponent,
     ShopItemComponent,
-    ShopStartComponent
+    ShopStartComponent,
+    ShopItemDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,8 @@ import { ShopItem } from "./shopItem.model";
 
 export class ShopService{
     // recipeSelected = new EventEmitter<ShopItem>();
-    private shopItems: ShopItem[] = [new ShopItem("TestName","TestTitle","TestDescription","TestAuthor",1,"https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg"),
-    new ShopItem("TestName2","TestTitle2","TestDescription2","TestAuthor2",2,"https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg")
+    private shopItems: ShopItem[] = [new ShopItem("TestName","TestTitle","TestDescription","TestAuthor",1,"https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg"),
+    new ShopItem("TestName2","TestTitle2","TestDescription2","TestAuthor2",2,"https://miro.medium.com/max/1338/0*d8OZIzh-3QJ6eeoH.jpg")
 ];
     
     constructor(){
