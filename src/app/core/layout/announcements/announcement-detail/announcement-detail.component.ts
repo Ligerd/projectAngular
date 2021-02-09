@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { AnnouncementsService } from '../announcements/announcements.service';
-import { Announcement } from '../announcements/model/annaouncement';
+import { AnnouncementsService } from '../announcements.service';
+import { Announcement } from '../model/annaouncement';
 
 @Component({
   selector: 'app-announcement-detail',
@@ -21,5 +21,7 @@ export class AnnouncementDetailComponent implements OnInit {
       }
     )
   }
-
+  addToFavorite(){
+    
+  }
 }

@@ -1,0 +1,41 @@
+<!-- <div class="row">
+    <div class="col-xs-12">
+      <img
+        [src]="announcement.imagePath"
+        alt="{{ announcement.title }}"
+        class="img-responsive"
+        style="max-height: 300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ announcement.title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      
+    </div>
+  </div> -->
+  <div class="container">
+      <div class="col-lg-6 col-md-6">
+        <div class="row">
+            <h1> Title: {{ announcement.title }}</h1>
+            <h2>Rate of  the  meme: {{announcement.rate}}</h2>
+            Description: {{ announcement.description }}
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary" (click)="addToFavorite()"><i class="fa fa-heart"></i>Add to favorite</button>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <img
+        [src]="announcement.imagePath"
+        alt="{{ announcement.title }}"
+        class="img-responsive"
+        style="max-height: 300px;">
+      </div>
+  </div>
+
+
+  

@@ -7,6 +7,10 @@
 <td>{{ announcement.title }}</td>
 <td>{{ announcement.author }}</td>
 <td>{{ announcement.description }}</td>
+<td> {{announcement.rate}}</td>
+<div *ngIf="showButton">
+
 <td>     
-    <button type="button" class="btn btn-primary"><i class="fa fa-heart"></i>Add to favorite</button>
+    <button type="button" class="btn btn-primary" (click)="addToFavorite($event)"><i class="fa fa-heart"></i>Add to favorite</button>
 </td>
+</div>

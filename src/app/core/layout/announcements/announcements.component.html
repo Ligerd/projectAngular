@@ -1,17 +1,17 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th scope="col">#</th>
+			<th scope="col">Id</th>
 			<th scope="col">Image</th>
 			<th scope="col">Title</th>
 			<th scope="col">Author</th>
 			<th scope="col">Description</th>
-			<th scope="col"></th>
+			<th scope="col">Rate</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		
-        <tr *ngFor="let announcementEl of announcements; let i = index;" app-announcement-row [announcement]="announcementEl" [routerLink]="[i]"></tr>
+        <tr *ngFor="let announcementEl of announcements; let i = index;" app-announcement-row [announcement]="announcementEl" [index]='i' [routerLink]="[announcementEl.id]" style="cursor: pointer;"></tr>
 	</tbody>
 </table>
