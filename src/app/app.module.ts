@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutesModule } from './app.routes.module';
-import { CoreModule } from './core/core.module';
 
 import { HeaderComponent } from './core/layout/header/header.component';
+import { LayoutModule } from './core/layout/layout.module';
 
 
 
@@ -17,7 +16,7 @@ import { HeaderComponent } from './core/layout/header/header.component';
   imports: [
     BrowserModule,
     AppRoutesModule,
-    CoreModule
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

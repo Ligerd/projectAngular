@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { AnnouncementsService } from '../announcements/announcements.service';
+import { Announcement } from '../announcements/model/annaouncement';
+
+@Component({
+  selector: 'app-announcement-detail',
+  templateUrl: './announcement-detail.component.html',
+  styleUrls: ['./announcement-detail.component.css']
+})
+export class AnnouncementDetailComponent implements OnInit {
+  announcement: Announcement;
+  id: number;
+  constructor(private announcementService: AnnouncementsService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id= +params['id'];
+        this.announcement= this.announcementService.getAnnouncement(this.id)
+      }
+    )
+  }
+
+}

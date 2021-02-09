@@ -1,1 +1,17 @@
-<p>announcements works!</p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Image</th>
+			<th scope="col">Title</th>
+			<th scope="col">Author</th>
+			<th scope="col">Description</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		
+        <tr *ngFor="let announcementEl of announcements; let i = index;" app-announcement-row [announcement]="announcementEl" [routerLink]="[i]"></tr>
+	</tbody>
+</table>

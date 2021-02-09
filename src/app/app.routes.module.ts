@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnnouncementDetailComponent } from './core/layout/announcement-detail/announcement-detail.component';
 import { AnnouncementsComponent } from './core/layout/announcements/announcements.component';
+import { FavoriteAnnouncementComponent } from './core/layout/favorite-announcement/favorite-announcement.component';
 import { LayoutComponent } from './core/layout/layout.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: LayoutComponent,     
-    //     children: [
-    //           {
-    //             path: 'announcements',
-    //             component: AnnouncementsComponent,
-    //           },
-    //         ],
-    // }      
-    }        
+  { path: '', redirectTo: '/announcements', pathMatch: 'full' },
+  {
+    path: 'announcements',
+    component: LayoutComponent,
+    children: [
+      { path: '', 
+        component: AnnouncementsComponent 
+      },
+      { path: 'favorite',
+        component: FavoriteAnnouncementComponent
+      },
+      {
+        path: ':id',
+        component: AnnouncementDetailComponent
+      },
+    ]
+  },
 ];
 
 @NgModule({
@@ -23,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutesModule {}
+export class AppRoutesModule { }

@@ -9,6 +9,7 @@ import { Announcement } from './model/annaouncement';
 })
 export class AnnouncementsComponent implements OnInit {
   announcements: Announcement[];
+  
   constructor(private announcementsServes: AnnouncementsService) { 
     this.announcements=announcementsServes.getAnnouncements();
   }
