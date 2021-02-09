@@ -14,7 +14,7 @@
 
 	<tbody>
                
-            <tr *ngFor="let announcementEl of favoriteAnnouncements; let i = index;" app-announcement-row [announcement]="announcementEl" [index]='i' [routerLink]="['/announcements',announcementEl.id]" style="cursor: pointer;" [showButton]="false"></tr>
+            <tr *ngFor="let announcementEl of favoriteAnnouncements; let i = index;" app-announcement-row [announcement]="announcementEl" [index]='i' [routerLink]="['/announcements',announcementEl.id]" style="cursor: pointer;" [showButton]="false" ></tr>
         
     </tbody>
 </table>

@@ -22,6 +22,6 @@ export class AnnouncementDetailComponent implements OnInit {
     )
   }
   addToFavorite(){
-    
+    this.announcementService.addToFavorite(this.announcement);
   }
 }
