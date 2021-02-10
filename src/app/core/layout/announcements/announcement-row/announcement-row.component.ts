@@ -14,11 +14,11 @@ export class AnnouncementRowComponent implements OnInit {
   constructor(private announcementService: AnnouncementsService) { }
 
   ngOnInit(): void {
-    console.log(this.showButton);
+    //console.log(this.showButton);
   }
   addToFavorite(event: Event){
     event.stopPropagation();
-    console.log("We click");
+   // console.log("We click");
     this.announcementService.addToFavorite(this.announcement);
   }
 }

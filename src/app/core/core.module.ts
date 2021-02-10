@@ -12,7 +12,8 @@ import { LayoutModule } from './layout/layout.module';
   imports: [
     RouterModule,
     ReactiveFormsModule,
-    LayoutModule
+    LayoutModule,
+  
   ]
 })
 export class CoreModule {}

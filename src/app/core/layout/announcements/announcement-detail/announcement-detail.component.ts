@@ -10,18 +10,31 @@ import { Announcement } from '../model/annaouncement';
 })
 export class AnnouncementDetailComponent implements OnInit {
   announcement: Announcement;
-  id: number;
-  constructor(private announcementService: AnnouncementsService, private route: ActivatedRoute) { }
+  id: string;
+  loaded: boolean=false;
+  constructor(private announcementsService: AnnouncementsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.id= +params['id'];
-        this.announcement= this.announcementService.getAnnouncement(this.id)
+
+        this.id = params['id'];
+        console.log(this.id);
+        this.announcementsService.getAnnouncement(this.id).subscribe(
+          res => {
+            console.log(res);
+            this.announcement = res;
+            this.loaded=!this.loaded;
+          },
+          err => {
+            console.log("Hello i am  not work" + err);
+          }
+        )
+
       }
     )
   }
-  addToFavorite(){
-    this.announcementService.addToFavorite(this.announcement);
+  addToFavorite() {
+    this.announcementsService.addToFavorite(this.announcement);
   }
 }

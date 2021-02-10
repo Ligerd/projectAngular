@@ -16,5 +16,4 @@ export class FavoriteAnnouncementComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

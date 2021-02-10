@@ -11,13 +11,16 @@ import { FavoriteAnnouncementComponent } from './favorite-announcements/favorite
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FavoriteService } from './favorite-announcements/favorite.service';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [LayoutComponent, AnnouncementsComponent, HeaderComponent, AnnouncementRowComponent, AnnouncementDetailComponent, FavoriteAnnouncementComponent, SpinnerComponent],
   exports: [],
   imports: [
     RouterModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
   ],
   providers: [AnnouncementsService, FavoriteService]
 })

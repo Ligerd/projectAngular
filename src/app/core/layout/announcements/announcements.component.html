@@ -1,17 +1,32 @@
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th scope="col">Id</th>
-			<th scope="col">Image</th>
-			<th scope="col">Title</th>
-			<th scope="col">Author</th>
-			<th scope="col">Description</th>
-			<th scope="col">Rate</th>
-		</tr>
-	</thead>
+<div *ngIf='!loading'>
+	<app-spinner name="mySpinner">Loading...</app-spinner>
+</div>
+<div *ngIf='loading'>
+	<div>
+	<form class="navbar-form navbar-right">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Filter by title">
+		</div>
+		<button class="btn btn-default" (click)="applyFilter($event)">Apply filter</button>
+	</form>
+	</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Image</th>
+				<th scope="col">Title</th>
+				<th scope="col">Author</th>
+				<th scope="col">Description</th>
+				<th scope="col">Rate</th>
+			</tr>
+		</thead>
 
-	<tbody>
-		
-        <tr *ngFor="let announcementEl of announcements; let i = index;" app-announcement-row [announcement]="announcementEl" [index]='i' [routerLink]="[announcementEl.id]" style="cursor: pointer;"></tr>
-	</tbody>
-</table>
+		<tbody>
+
+			<tr *ngFor="let announcementEl of announcements; let i = index;" app-announcement-row
+				[announcement]="announcementEl" [index]='i' [routerLink]="[announcementEl.id]" style="cursor: pointer;">
+			</tr>
+		</tbody>
+	</table>
+</div>

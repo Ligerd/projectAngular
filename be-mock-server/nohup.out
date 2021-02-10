@@ -1,0 +1,10 @@
+
+> vms-rest-api-server@1.0.0 server D:\work\swisscom_bnag_demo\be-mock
+> ts-node server/server.ts
+
+{"address":"::","family":"IPv6","port":8012}
+HTTP REST API Server running at http://localhost:8012
+INITIALIZING DATABASE
+INITIALIZED DATABASE
+PRELOADING ROUTING_TREES
+PRELOADED ROUTING_TREES
