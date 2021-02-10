@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
+import { SpinnerService } from './spinner.service';
 
 
 @Component({
@@ -7,12 +8,14 @@ import { Component, Input, OnInit, SimpleChange } from '@angular/core';
   styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent implements OnInit {
- 
- 
-  @Input() message = '';
 
-  constructor() { }
+  showSpinner = true;
+
+  constructor(private spinnerService: SpinnerService) { }
 
   ngOnInit() {
+     this.spinnerService.getSpinnerObserver().subscribe((status) => {
+       this.showSpinner = status === 'start';
+    });
   }
 }

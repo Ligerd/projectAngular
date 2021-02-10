@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { SpinnerService } from '../../spinner/spinner.service';
 import { AnnouncementsService } from '../announcements.service';
 import { Announcement } from '../model/annaouncement';
 
@@ -11,20 +12,20 @@ import { Announcement } from '../model/annaouncement';
 export class AnnouncementDetailComponent implements OnInit {
   announcement: Announcement;
   id: string;
-  loaded: boolean=false;
-  constructor(private announcementsService: AnnouncementsService, private route: ActivatedRoute) { }
+  constructor(private announcementsService: AnnouncementsService, private route: ActivatedRoute, private spinnerService: SpinnerService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
 
         this.id = params['id'];
-        console.log(this.id);
+        
+        this.spinnerService.requestStarted();
         this.announcementsService.getAnnouncement(this.id).subscribe(
           res => {
             console.log(res);
             this.announcement = res;
-            this.loaded=!this.loaded;
+            this.spinnerService.requestEnded();
           },
           err => {
             console.log("Hello i am  not work" + err);
