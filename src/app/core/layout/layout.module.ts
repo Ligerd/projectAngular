@@ -13,16 +13,19 @@ import { FavoriteService } from './favorite-announcements/favorite.service';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchBarComponent } from './announcements/search-bar/search-bar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [LayoutComponent, AnnouncementsComponent, HeaderComponent, AnnouncementRowComponent, AnnouncementDetailComponent, FavoriteAnnouncementComponent, SpinnerComponent],
+  declarations: [LayoutComponent, AnnouncementsComponent, HeaderComponent, AnnouncementRowComponent, AnnouncementDetailComponent, FavoriteAnnouncementComponent, SpinnerComponent, SearchBarComponent],
   exports: [],
   imports: [
     RouterModule,
     CommonModule,
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule,
   ],
   providers: [AnnouncementsService, FavoriteService]
 })

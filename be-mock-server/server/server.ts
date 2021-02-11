@@ -61,9 +61,9 @@ app.get(baseURL + 'announcements', (req, res) => {
     const response: LIST_RESPONSE<ANNOUNCEMENT> = {
       page: {
         number: 1,
-        size: 20,
-        totalElements: 1000,
-        totalPages: 50,
+        size: 5,
+        totalElements: 49,
+        totalPages: 49,
       },
       content: announcements,
     };

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutesModule } from './app.routes.module';
 
-import { HeaderComponent } from './core/layout/header/header.component';
 import { LayoutModule } from './core/layout/layout.module';
 
 

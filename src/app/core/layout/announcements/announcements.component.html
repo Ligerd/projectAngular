@@ -1,27 +1,24 @@
 <app-spinner></app-spinner>
 <div *ngIf="announcements!=undefined">
-	<div>
-		<form class="navbar-form navbar-right">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Filter by title">
-			</div>
-			<button class="btn btn-default" (click)="applyFilter($event)">Apply filter</button>
-		</form>
-	</div>
 	<div class="row">
 		<div class="col-sm-3 form-group"> 
 			<pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
-				(pageChange)=" change($event)">
+				(pageChange)=" changePageNumber($event)">
 			</pagination-controls>
 		 </div> 
-		 <div class="col-sm-1 form-group">
+		 <div class="col-sm-2 form-group">
 			<select (change)="selectChangeHandler($event)">
 				<option value="5">5</option>
 				<option value="20">20</option>
 				<option value="50">50</option>
 			</select>
-			<p><span>You selected: </span><b>{{itemsOnPage}}</b></p>
+			<label for="cars">You selected: {{page.size}}</label>
 		</div> 
+	
+		<div class="col-sm-6 form-group">
+
+			<app-search-bar></app-search-bar>
+		</div>
 	</div>
 	<table class="table table-striped">
 
@@ -38,7 +35,7 @@
 
 		<tbody>
 
-			<tr *ngFor="let announcementEl of announcements | paginate: {id: 'listing_pagination', itemsPerPage: itemsOnPage, currentPage: page, totalItems: totalRecords} "
+			<tr *ngFor="let announcementEl of announcements | paginate: {id: 'listing_pagination', itemsPerPage: page.size, currentPage: page.number, totalItems: page.totalElements} "
 				app-announcement-row [announcement]="announcementEl" [routerLink]="[announcementEl.id]"
 				style="cursor: pointer;">
 			</tr>
