@@ -19,7 +19,7 @@ export let ANNOUNCEMENTS_SERVICES_LIST: LIST_OPTION[] = [];
 export let BSK_LIST: string[] = [];
 export let DESTINATION_NUMBERS: DESTINATION_NUMBER[] = [];
 
-export const NUMBER_OF_VALUES = 20;
+export const NUMBER_OF_VALUES = 50;
 
 export function INITIALIZE_DATABASE(): { users: USER[] } {
   const users: USER[] = [];
