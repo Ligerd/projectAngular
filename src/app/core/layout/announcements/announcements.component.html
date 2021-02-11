@@ -8,13 +8,23 @@
 			<button class="btn btn-default" (click)="applyFilter($event)">Apply filter</button>
 		</form>
 	</div>
-	<pagination-controls  id="listing_pagination" maxSize="5"
-
-	directionLinks="true"
-	
-	(pageChange)=" change($event)"></pagination-controls>
+	<div class="row">
+		<div class="col-sm-3 form-group"> 
+			<pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
+				(pageChange)=" change($event)">
+			</pagination-controls>
+		 </div> 
+		 <div class="col-sm-1 form-group">
+			<select (change)="selectChangeHandler($event)">
+				<option value="5">5</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+			</select>
+			<p><span>You selected: </span><b>{{itemsOnPage}}</b></p>
+		</div> 
+	</div>
 	<table class="table table-striped">
-		
+
 		<thead>
 			<tr>
 				<th scope="col">Id</th>
@@ -28,8 +38,9 @@
 
 		<tbody>
 
-			<tr *ngFor="let announcementEl of announcements | paginate: {id: 'listing_pagination', itemsPerPage: itemsOnPage, currentPage: page, totalItems: totalRecords} " app-announcement-row [announcement]="announcementEl"
-				[routerLink]="[announcementEl.id]" style="cursor: pointer;">
+			<tr *ngFor="let announcementEl of announcements | paginate: {id: 'listing_pagination', itemsPerPage: itemsOnPage, currentPage: page, totalItems: totalRecords} "
+				app-announcement-row [announcement]="announcementEl" [routerLink]="[announcementEl.id]"
+				style="cursor: pointer;">
 			</tr>
 		</tbody>
 	</table>

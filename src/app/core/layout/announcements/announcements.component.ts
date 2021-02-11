@@ -38,6 +38,10 @@ export class AnnouncementsComponent implements OnInit {
   applyFilter(event: Event) {
     event.stopPropagation();
   }
+  selectChangeHandler(event: any){
+    this.itemsOnPage = event.target.value;
+    // console.log(this.itemsOnPage);
+  }
   onDelete() {
 
   }
