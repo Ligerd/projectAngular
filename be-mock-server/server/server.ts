@@ -53,7 +53,7 @@ app.get(baseURL + 'announcements', (req, res) => {
   // const direction = req.query.direction || 'desc';
   // const sort = req.query.sort || 'name';
   // const subSort = sort === 'usedIn' ? 'name' : null;
-
+  console.log("JESTEM");
   setTimeout(() => {
     let clones = JSON.parse(JSON.stringify(ANNOUNCEMENTS));
     // let announcements = clones.map((value: ANNOUNCEMENT) => value).sort(dynamicSort(direction, sort, subSort));

@@ -39,7 +39,14 @@ export class AnnouncementsComponent implements OnInit {
   changePageNumber(event: any) {
     // console.log(event);
     this.page.number = event;
-    this.announcementsService.changePage(this.page);
+    this.announcementsService.changePage(this.page).subscribe(
+      res => {
+        console.log("hello");
+      },
+      err => {
+        console.log("ERRORR")
+      }
+    );
     // this.page = event;
     // console.log(this.pages);
     // this.page.number = event.target.value;
@@ -52,7 +59,14 @@ export class AnnouncementsComponent implements OnInit {
 
     this.page.size = +event.target.value;
     console.log("go  request");
-    this.announcementsService.changePage(this.page);
+    this.announcementsService.changePage(this.page).subscribe(
+      res => {
+        console.log("hello");
+      },
+      err => {
+        console.log("ERRORR")
+      }
+    );
     // this.itemsOnPage=+event.target.value;
 
   }
