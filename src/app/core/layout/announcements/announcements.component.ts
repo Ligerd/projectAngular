@@ -16,6 +16,7 @@ export class AnnouncementsComponent implements OnInit {
   // totalRecords: number;
   page: Page;
   announcements: Announcement[];
+  title: string;
   constructor(private announcementsService: AnnouncementsService, private spinnerService: SpinnerService) {
   }
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class AnnouncementsComponent implements OnInit {
           this.announcementsService.setAnnouncements(this.announcements);
           this.page = res.page;
           // this.totalRecords = res.content.length;
+          // console.log(this.totalRecords);
           console.log(this.page);
           this.spinnerService.requestEnded();
         },
@@ -40,7 +42,7 @@ export class AnnouncementsComponent implements OnInit {
     this.page.number = event;
     this.announcementsService.changePage(this.page).subscribe(
       res => {
-        console.log("hello");
+        console.log("Request change page");
       },
       err => {
         console.log("ERRORR")
@@ -60,7 +62,7 @@ export class AnnouncementsComponent implements OnInit {
     console.log("go  request");
     this.announcementsService.changePage(this.page).subscribe(
       res => {
-        console.log("hello");
+        console.log("Request change itemsOn page");
       },
       err => {
         console.log("ERRORR")
@@ -69,12 +71,14 @@ export class AnnouncementsComponent implements OnInit {
     // this.itemsOnPage=+event.target.value;
 
   }
-
-  onDelete() {
-
+  onSubmitFilter(){
+    console.log(this.title)
+    this.announcementsService.filterByTitle(this.title).subscribe(res=>{
+      console.log("YEEEE we filter table");
+    },
+    error=>{
+      console.log("O no filter not work");
+    })
   }
-
-  onClear() {
-
-  }
+  
 }
