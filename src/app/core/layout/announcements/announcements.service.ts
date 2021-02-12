@@ -30,12 +30,12 @@ export class AnnouncementsService {
     changePage(page: Page) {
 
         const params = new HttpParams()
-        .set('page', page.number.toString())
-        .set('size', page.size.toString())
-        .set('totalElements',page.totalElements.toString())
-        .set('totalPages',page.totalPages.toString())
+            .set('page', page.number.toString())
+            .set('size', page.size.toString())
+            .set('totalElements', page.totalElements.toString())
+            .set('totalPages', page.totalPages.toString())
 
-        console.log("yup i am");
+        console.log("Hello from service");
         return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
     }
 }

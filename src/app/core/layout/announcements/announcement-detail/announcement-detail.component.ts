@@ -19,7 +19,7 @@ export class AnnouncementDetailComponent implements OnInit {
       (params: Params) => {
 
         this.id = params['id'];
-        
+
         this.spinnerService.requestStarted();
         this.announcementsService.getAnnouncement(this.id).subscribe(
           res => {

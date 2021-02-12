@@ -14,8 +14,8 @@ export class SpinnerComponent implements OnInit {
   constructor(private spinnerService: SpinnerService) { }
 
   ngOnInit() {
-     this.spinnerService.getSpinnerObserver().subscribe((status) => {
-       this.showSpinner = status === 'start';
+    this.spinnerService.getSpinnerObserver().subscribe((status) => {
+      this.showSpinner = status === 'start';
     });
   }
 }

@@ -6,22 +6,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SpinnerService {
   private spinner$ = new BehaviorSubject<string>('');
-  
+
   constructor() { }
 
-  getSpinnerObserver(): Observable<string>{
+  getSpinnerObserver(): Observable<string> {
     return this.spinner$.asObservable();
   }
-  requestStarted(){    
+  requestStarted() {
     this.spinner$.next('start');
 
   }
 
-  requestEnded(){    
+  requestEnded() {
     this.spinner$.next('stop');
-    
+
   }
-  resetSpinner(){
+  resetSpinner() {
     this.spinner$.next('stop');
   }
 }

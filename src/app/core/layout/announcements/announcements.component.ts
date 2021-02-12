@@ -25,7 +25,6 @@ export class AnnouncementsComponent implements OnInit {
         res => {
           this.announcements = res.content;
           this.announcementsService.setAnnouncements(this.announcements);
-
           this.page = res.page;
           // this.totalRecords = res.content.length;
           console.log(this.page);

@@ -18,7 +18,7 @@ export class AnnouncementRowComponent implements OnInit {
   }
   addToFavorite(event: Event){
     event.stopPropagation();
-   // console.log("We click");
+   // console.log("click");
     this.announcementService.addToFavorite(this.announcement);
   }
 }
