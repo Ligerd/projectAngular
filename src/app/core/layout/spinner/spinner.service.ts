@@ -12,16 +12,7 @@ export class SpinnerService {
   getSpinnerObserver(): Observable<string> {
     return this.spinner$.asObservable();
   }
-  requestStarted() {
-    this.spinner$.next('start');
-
-  }
-
-  requestEnded() {
-    this.spinner$.next('stop');
-
-  }
-  resetSpinner() {
-    this.spinner$.next('stop');
+  setSpinnerStatus(status: 'start' | 'stop'){
+    this.spinner$.next(status);
   }
 }

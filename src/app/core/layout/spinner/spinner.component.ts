@@ -15,6 +15,7 @@ export class SpinnerComponent implements OnInit {
 
   ngOnInit() {
     this.spinnerService.getSpinnerObserver().subscribe((status) => {
+      console.log(status);
       this.showSpinner = status === 'start';
     });
   }

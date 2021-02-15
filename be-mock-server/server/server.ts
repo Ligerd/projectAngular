@@ -68,7 +68,7 @@ app.get(baseURL + 'announcements', (req, res) => {
       content: announcements,
     };
     res.status(200).json(response);
-  }, 1000);
+  }, 5000);
 });
 
 app.get(baseURL + 'announcements/:id', (req, res) => {

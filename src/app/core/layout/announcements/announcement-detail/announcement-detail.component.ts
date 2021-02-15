@@ -20,12 +20,12 @@ export class AnnouncementDetailComponent implements OnInit {
 
         this.id = params['id'];
 
-        this.spinnerService.requestStarted();
+        this.spinnerService.setSpinnerStatus("start");
         this.announcementsService.getAnnouncement(this.id).subscribe(
           res => {
             console.log(res);
             this.announcement = res;
-            this.spinnerService.requestEnded();
+            this.spinnerService.setSpinnerStatus("stop");
           },
           err => {
             console.log("Hello i am  not work" + err);

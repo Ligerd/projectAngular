@@ -16,7 +16,7 @@ export class AnnouncementsComponent implements OnInit {
   constructor(private announcementsService: AnnouncementsService, private spinnerService: SpinnerService) {
   }
   ngOnInit(): void {
-    this.spinnerService.requestStarted();
+    this.spinnerService.setSpinnerStatus("start");
     this.announcementsService.loadAnnouncements()
       .subscribe(
         res => {
@@ -24,7 +24,7 @@ export class AnnouncementsComponent implements OnInit {
           this.announcementsService.setAnnouncements(this.announcements);
           this.page = res.page;
           console.log(this.page);
-          this.spinnerService.requestEnded();
+          this.spinnerService.setSpinnerStatus("stop");
         },
         err => {
           console.log("ERRORR")
@@ -32,7 +32,7 @@ export class AnnouncementsComponent implements OnInit {
       )
   }
   changePageNumber(event: any) {
-    // console.log(event);
+   
     this.page.number = event;
     this.announcementsService.changePage(this.page).subscribe(
       res => {
@@ -61,10 +61,10 @@ export class AnnouncementsComponent implements OnInit {
     );
   }
   onSubmitFilter() {
-    this.spinnerService.requestStarted();
+    this.spinnerService.setSpinnerStatus("start");
     console.log(this.title)
     this.announcementsService.filterByTitle(this.title).subscribe(res => {
-      this.spinnerService.requestEnded();
+      this.spinnerService.setSpinnerStatus("stop");
       console.log("YEEEE we filter table");
     },
       error => {
