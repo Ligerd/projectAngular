@@ -35,14 +35,12 @@ export class AnnouncementsService {
             .set('totalElements', page.totalElements.toString())
             .set('totalPages', page.totalPages.toString())
 
-        // console.log("Hello from service");
         return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
     }
-    filterByTitle(title: string): Observable<any>{
+    filterByTitle(title: string): Observable<any> {
         const params = new HttpParams()
             .set('sortBy', "title")
             .set('title', title)
-        // console.log("Hello from service");
         return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
     }
 }

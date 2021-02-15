@@ -1,26 +1,27 @@
 <app-spinner></app-spinner>
 <div *ngIf="announcements!=undefined">
 	<div class="row">
-		<div class="col-sm-3 form-group"> 
+		<div class="col-sm-3 form-group">
 			<pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
 				(pageChange)=" changePageNumber($event)">
 			</pagination-controls>
-		 </div> 
-		 <div class="col-sm-2 form-group">
+		</div>
+		<div class="col-sm-2 form-group">
 			<select (change)="selectChangeHandler($event)">
 				<option value="5">5</option>
 				<option value="20">20</option>
 				<option value="50">50</option>
 			</select>
 			<label for="cars">You selected: {{page.size}}</label>
-		</div> 
-	
+		</div>
+
 		<div class="col-sm-6 form-group">
 
 			<form #form="ngForm" class="form-inline md-form mr-auto mb-4" (ngSubmit)="onSubmitFilter()">
-				<input class="form-control mr-sm-2" type="text" placeholder="Input title" name="title" aria-label="Search" [(ngModel)]="title">
-				<button mdbBtn size="sm" gradient="aqua" rounded="true" type="submit" class="my-0 waves-light">Search</button>
-				<!-- <button mdbBtn size="sm" gradient="aqua" rounded="true" type="button" class="my-0 waves-light">Search2</button> -->
+				<input class="form-control mr-sm-2" type="text" placeholder="Input title" name="title"
+					aria-label="Search" [(ngModel)]="title">
+				<button mdbBtn size="sm" gradient="aqua" rounded="true" type="submit"
+					class="my-0 waves-light">Search</button>
 			</form>
 		</div>
 	</div>

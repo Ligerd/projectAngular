@@ -1,16 +1,14 @@
 <th scope="row">{{ announcement.id }}</th>
-<td><img
-    [src]="announcement.imagePath"
-    alt="{{ announcement.title }}"
-    class="img-responsive"
-    style="max-height: 50px;"></td>
+<td><img [src]="announcement.imagePath" alt="{{ announcement.title }}" class="img-responsive" style="max-height: 50px;">
+</td>
 <td>{{ announcement.title }}</td>
 <td>{{ announcement.author }}</td>
-<td>{{ announcement.description }}</td>
+<td>{{ announcement.description | shortenPipe:10 }}</td>
 <td> {{announcement.rate}}</td>
 <div *ngIf="showButton">
 
-<td>     
-    <button type="button" class="btn btn-primary" (click)="addToFavorite($event)"><i class="fa fa-heart" style="float: right"></i>Add to favorite</button>
-</td>
+    <td>
+        <button type="button" class="btn btn-primary" (click)="addToFavorite($event)"><i class="fa fa-heart"
+                style="text-align: center"></i>Add to favorite</button>
+    </td>
 </div>

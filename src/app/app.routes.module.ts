@@ -11,10 +11,12 @@ const routes: Routes = [
     path: 'announcements',
     component: LayoutComponent,
     children: [
-      { path: '', 
-        component: AnnouncementsComponent 
+      {
+        path: '',
+        component: AnnouncementsComponent
       },
-      { path: 'favorite',
+      {
+        path: 'favorite',
         component: FavoriteAnnouncementComponent
       },
       {

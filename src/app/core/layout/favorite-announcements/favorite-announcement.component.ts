@@ -9,10 +9,10 @@ import { FavoriteService } from './favorite.service';
 })
 @Injectable()
 export class FavoriteAnnouncementComponent implements OnInit {
-  favoriteAnnouncements:  Announcement[]; 
-  constructor(private favoriteService: FavoriteService) { 
+  favoriteAnnouncements: Announcement[];
+  constructor(private favoriteService: FavoriteService) {
     this.favoriteAnnouncements = favoriteService.getFavoriteAnnouncements();
-   }
+  }
 
   ngOnInit(): void {
   }

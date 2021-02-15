@@ -11,13 +11,14 @@ import { FavoriteAnnouncementComponent } from './favorite-announcements/favorite
 import { SpinnerComponent } from './spinner/spinner.component';
 import { FavoriteService } from './favorite-announcements/favorite.service';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { ShortenPipePipe } from '../shared/shorten-pipe.pipe';
 
 
 @NgModule({
-  declarations: [LayoutComponent, AnnouncementsComponent, HeaderComponent, AnnouncementRowComponent, AnnouncementDetailComponent, FavoriteAnnouncementComponent, SpinnerComponent],
+  declarations: [LayoutComponent, AnnouncementsComponent, HeaderComponent, AnnouncementRowComponent, AnnouncementDetailComponent, FavoriteAnnouncementComponent, SpinnerComponent, ShortenPipePipe],
   exports: [],
   imports: [
     RouterModule,

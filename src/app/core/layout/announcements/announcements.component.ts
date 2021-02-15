@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { SpinnerService } from '../spinner/spinner.service';
 import { AnnouncementsService } from './announcements.service';
 import { Announcement } from './model/annaouncement';
@@ -11,9 +10,6 @@ import { Page } from './model/page';
   styleUrls: ['./announcements.component.css']
 })
 export class AnnouncementsComponent implements OnInit {
-  // page: number = 1;
-  // itemsOnPage: number = 5;
-  // totalRecords: number;
   page: Page;
   announcements: Announcement[];
   title: string;
@@ -27,8 +23,6 @@ export class AnnouncementsComponent implements OnInit {
           this.announcements = res.content;
           this.announcementsService.setAnnouncements(this.announcements);
           this.page = res.page;
-          // this.totalRecords = res.content.length;
-          // console.log(this.totalRecords);
           console.log(this.page);
           this.spinnerService.requestEnded();
         },
@@ -48,9 +42,6 @@ export class AnnouncementsComponent implements OnInit {
         console.log("ERRORR")
       }
     );
-    // this.page = event;
-    // console.log(this.pages);
-    // this.page.number = event.target.value;
   }
   searchByTitle() {
 
@@ -68,17 +59,17 @@ export class AnnouncementsComponent implements OnInit {
         console.log("ERRORR")
       }
     );
-    // this.itemsOnPage=+event.target.value;
-
   }
-  onSubmitFilter(){
+  onSubmitFilter() {
+    this.spinnerService.requestStarted();
     console.log(this.title)
-    this.announcementsService.filterByTitle(this.title).subscribe(res=>{
+    this.announcementsService.filterByTitle(this.title).subscribe(res => {
+      this.spinnerService.requestEnded();
       console.log("YEEEE we filter table");
     },
-    error=>{
-      console.log("O no filter not work");
-    })
+      error => {
+        console.log("O no filter not work");
+      })
   }
-  
+
 }

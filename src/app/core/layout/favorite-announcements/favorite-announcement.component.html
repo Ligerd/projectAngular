@@ -1,23 +1,26 @@
-<div *ngIf="favoriteAnnouncements && favoriteAnnouncements.length >0">  
-<table class="table table-striped">
-	 
-    <thead>
-		<tr>
-			<th scope="col">id</th>
-			<th scope="col">Image</th>
-			<th scope="col">Title</th>
-			<th scope="col">Author</th>
-			<th scope="col">Description</th>
-			<th scope="col">Rate</th>
-		</tr>
-	</thead>
+<div *ngIf="favoriteAnnouncements && favoriteAnnouncements.length >0">
+	<table class="table table-striped">
 
-	<tbody>
-               
-            <tr *ngFor="let announcementEl of favoriteAnnouncements; let i = index;" app-announcement-row [announcement]="announcementEl" [index]='i' [routerLink]="['/announcements',announcementEl.id]" style="cursor: pointer;" [showButton]="false" ></tr>
-        
-    </tbody>
-</table>
+		<thead>
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">Image</th>
+				<th scope="col">Title</th>
+				<th scope="col">Author</th>
+				<th scope="col">Description</th>
+				<th scope="col">Rate</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			<tr *ngFor="let announcementEl of favoriteAnnouncements; let i = index;" app-announcement-row
+				[announcement]="announcementEl" [index]='i' [routerLink]="['/announcements',announcementEl.id]"
+				style="cursor: pointer;" [showButton]="false"></tr>
+
+		</tbody>
+	</table>
 </div>
 <div *ngIf="favoriteAnnouncements == undefined || favoriteAnnouncements.length == 0">
-    <h4 style="text-align:center">No favorite memes</h4></div>
+	<h4 style="text-align:center">No favorite memes</h4>
+</div>

@@ -120,7 +120,7 @@ export function GENERATE_ANNOUNCEMENTS(): ANNOUNCEMENT[] {
     announcements.push({
       id: '' + i,
       title: 'Announcement ' + i,
-      description: 'Description ' + i,
+      description: 'To create a custom pipe which accepts parameter, we should change the transform method of the created pipe. The above custom square pipe transform method has only one parameter i.e., value.  Instead of that we can pass an exponent parameter, which decides how many times we have to multiply the number. ' + i,
       author: 'Author  '  + i,
       rate: ''+i,
       activeFrom: new Date(),

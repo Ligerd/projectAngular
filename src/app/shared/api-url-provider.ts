@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class ApiUrlProvider {
-  constructor() {}
+  constructor() { }
 
   getBaseURL(): string {
     return environment.apiUrl;
