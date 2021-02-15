@@ -27,14 +27,15 @@ export class AnnouncementsComponent implements OnInit {
           this.spinnerService.setSpinnerStatus("stop");
         },
         err => {
+          this.spinnerService.setSpinnerStatus("stop");
           console.log("ERRORR")
         }
       )
   }
   changePageNumber(event: any) {
-   
     this.page.number = event;
-    this.announcementsService.changePage(this.page).subscribe(
+    console.log(event)
+    this.announcementsService.changeOnPage(this.page, null).subscribe(
       res => {
         console.log("Request change page");
       },
@@ -43,15 +44,9 @@ export class AnnouncementsComponent implements OnInit {
       }
     );
   }
-  searchByTitle() {
-
-  }
-
   selectChangeHandler(event: any) {
-
     this.page.size = +event.target.value;
-    console.log("go  request");
-    this.announcementsService.changePage(this.page).subscribe(
+    this.announcementsService.changeOnPage(this.page,null).subscribe(
       res => {
         console.log("Request change itemsOn page");
       },
@@ -62,14 +57,12 @@ export class AnnouncementsComponent implements OnInit {
   }
   onSubmitFilter() {
     this.spinnerService.setSpinnerStatus("start");
-    console.log(this.title)
-    this.announcementsService.filterByTitle(this.title).subscribe(res => {
+    this.announcementsService.changeOnPage(null,this.title).subscribe(res => {
       this.spinnerService.setSpinnerStatus("stop");
-      console.log("YEEEE we filter table");
     },
       error => {
-        console.log("O no filter not work");
+        this.spinnerService.setSpinnerStatus("stop");
+        console.log("Error" + error);
       })
   }
-
 }

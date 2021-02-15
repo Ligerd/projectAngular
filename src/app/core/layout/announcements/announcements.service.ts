@@ -27,20 +27,17 @@ export class AnnouncementsService {
     addToFavorite(announcement: Announcement) {
         this.favoriteService.addFavoriteAnnouncement(announcement);
     }
-    changePage(page: Page) {
-
-        const params = new HttpParams()
-            .set('page', page.number.toString())
-            .set('size', page.size.toString())
-            .set('totalElements', page.totalElements.toString())
-            .set('totalPages', page.totalPages.toString())
-
-        return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
-    }
-    filterByTitle(title: string): Observable<any> {
-        const params = new HttpParams()
-            .set('sortBy', "title")
-            .set('title', title)
-        return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
+    changeOnPage(page: Page, title: string) {
+        console.log(page);
+        if (page != null && title == null) {
+            let params = new HttpParams();
+            Object.keys(page).forEach(key => {
+                params = params.set(key, page[key]);
+            });
+            return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
+        } else if (title != null && page == null) {
+            let params = new HttpParams().set("title", title);
+            return this.http.get<any>(this.apiUrlProvider.getBaseURL() + 'announcements', { params: params });
+        }
     }
 }
