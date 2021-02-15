@@ -1,5 +1,5 @@
 <app-spinner></app-spinner>
-<div *ngIf="announcements!=undefined">
+<div *ngIf="!announcements">
 	<div class="row">
 		<div class="col-sm-3 form-group">
 			<pagination-controls id="listing_pagination" maxSize="5" directionLinks="true"
@@ -21,7 +21,7 @@
 				<input class="form-control mr-sm-2" type="text" placeholder="Input title" name="title"
 					aria-label="Search" [(ngModel)]="title">
 				<button mdbBtn size="sm" gradient="aqua" rounded="true" type="submit"
-					class="my-0 waves-light">Search</button>
+					class="my-0 waves-light">Search!</button>
 			</form>
 		</div>
 	</div>
